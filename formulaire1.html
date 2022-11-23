@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="formulaire.css">
+ <title>formulaire</title>
+ <h1>Formulaire d'inscription aux clubs parascolaires</h1>
+</head>
+<body >
+    <img src="MQLUBA1.png" alt="">
+ <form id="forms" action="" >
+<!--nom-->
+<fieldset>
+  <legend for="nom">Nom</legend>
+<input type="text" id="nom"><br>
+<p id="nom_error"></p>
+</fieldset>
+<!--prenom-->
+<fieldset>
+<legend for="prenom">Prenom</legend>
+<input type="text" id="prenom"><br>
+<p id="prenom_error"></p>
+</fieldset>
+<!--email-->
+<fieldset>
+<legend  for="email">Email</legend>
+<input type="text" id="email"><br>
+<p id="email_error"></p>
+</fieldset>
+<!--telephone-->
+<fieldset>
+<legend for="telephone">Telephone</legend>
+<input name='tele' type="text" id="telephone"> <br>
+<p id="tele_error"></p>
+</fieldset>
+
+<!--genre-->
+<fieldset>
+<legend>Genre</legend>
+<input type="radio" id="feminiin" name="genre" >
+<label for="feminin">Feminin</label>
+<input type="radio" id="masculiin" name="genre" >
+<label for="masculin">Masculin</label>
+<p id="genre_error"></p>
+</fieldset>
+
+
+<!--groups-->
+<fieldset>
+<legend>Groupe</legend>
+<input type="radio" id="group" name="group" >
+<label for="Dw101">DW101</label>
+<input type="radio" id="group" name="group" >
+<label for="Dw102">DW102</label>
+<input type="radio" id="group" name="group" >
+<label for="Dw103">DW103</label><br>
+<input type="radio" id="group" name="group" >
+<label for="Dm101">DM101</label>
+<input type="radio" id="group" name="group" >
+<label for="Dm102">DM102</label>
+<p id="group_error"></p>
+</fieldset>
+<!--clubs-->
+<fieldset>
+<legend>Club</legend>
+<label for="clubs"></label>
+<select id="clubs" form="clubform" multiple>
+  <option value="info">Informatique</option>
+  <option value="robo">Robotique</option>
+  <option value="jeu">Jeu d'échecs</option>
+  <option value="musique">Musique</option>
+  <option value="foot">Foot</option>
+  <option value="Théatre">Théatre</option>
+</select>
+<p id="club_error"></p>
+</fieldset>
+<input id="button" type="submit" value="envoyer">
+</form>
+
+<script>
+document.getElementById('forms').addEventListener('keyup', (event)=>{
+    let nom = document.getElementById('nom').value;
+    let Nom = /^[a-zA-Z]{1,30}$/;
+    let prenom = document.getElementById('prenom').value;
+    let telephone = document.getElementById('telephone').value;
+    let Telephone=/^(05|06|07)\d{8}$/;
+    let email = document.getElementById('email').value;
+    let Email = /^[a-zA-Z0-9]+(.)+[a-zA-Z0-9]+@(ofppt)(.(ma))$/;
+    let groupeList = document.getElementsByName('group') ;
+    let i ; 
+    let groupesValid = false ;
+
+    let feminiin = document.getElementById('feminiin').checked;
+    let masculiin = document.getElementById('masculiin').checked;
+    let club = document.getElementById('clubs').value;
+    key = true;
+    if(!Nom.test(nom)){
+        document.getElementById("nom").style.borderColor = "red";
+        document.getElementById('nom_error').innerHTML = "*Ce champs est obligatoire!"
+        key = false ;
+    }
+   
+    console.log(key)
+
+    if(!Nom.test(prenom)){
+        document.getElementById("prenom").style.borderColor = "red";
+        document.getElementById('prenom_error').innerHTML = "*Ce champs est obligatoire!"
+        key = false ;
+    }
+    console.log(key)
+
+
+    if(!Telephone.test(telephone)){
+        document.getElementById("telephone").style.borderColor = "red";
+        document.getElementById('tele_error').innerHTML = "*Ce champs est obligatoire!"
+        key = false ;
+    }
+
+    console.log(key)
+
+    if(!Email.test(email)){
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById('email_error').innerHTML = "*Ce champs est obligatoire!"
+        key = false ;
+    }
+
+    console.log(key)
+    if(feminiin == false && masculiin == false){
+        document.getElementById('genre_error').innerHTML = "*Veuillez choisir votre genre! "
+    }
+    else{
+        document.getElementById('genre_error').innerHTML = ""
+    }
+
+  
+    console.log(key)
+    for ( i=0 ; i < groupeList.length ; i++ ){
+
+        if (groupeList[i].checked){
+            groupesValid = true ;
+            document.getElementById('group_error').innerHTML = "";
+            break ;
+        }
+       }
+       if(!groupesValid){
+        document.getElementById('group_error').innerHTML = "choisissez votre groupe";
+       key = false
+    }
+
+    if(club == false){
+        document.getElementById('club_error').innerHTML = "*Veuillez choisisser un club!"
+        key = false ;
+    }
+    else{
+        document.getElementById('club_error').innerHTML = ""
+    }
+    if(key === false){
+        event.preventDefault();
+
+    }
+
+
+else{ 
+        window.open("validation.html");
+    }
+})
+
+
+</script>
+
+
+</body>
+</html>

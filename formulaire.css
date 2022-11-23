@@ -1,0 +1,98 @@
+h1{
+text-align: center;
+color:#00767B;
+background-color: #cad0d2;
+margin-left: 360px;
+border-radius: 15px;
+margin-right: 90px;
+}
+label{
+font-size: 20px;
+padding-right : 20px;
+}
+input{
+padding: 10px;
+margin: 10px;
+
+}
+p{
+ font-size: 20px;
+}
+body{
+background-color: #00A4A5;
+}
+form{
+margin: 50px;
+color: aliceblue;
+}
+
+ select{
+  padding: 15px;
+ }
+body{
+ background-image:url(buus.png);
+ background-repeat: no-repeat;
+
+  
+} 
+
+
+form{
+margin-left: 350px;
+}
+legend{
+ font-size: 20px;
+}
+#button{
+height: 50px;
+width: 500px;
+margin-left: 175px;
+background-color:#cad0d2;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+border-radius: 10px;
+border: #82e0ff;
+font-size: 18px;
+}
+select{
+ height: 100px;
+ width: 200px;
+ background-color: #00A4A5;
+ font-size: 15px;
+}
+#nom_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+#prenom_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+#email_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+#tele_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+#group_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}#club_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+#genre_error {
+ color: rgb(179, 33, 33);
+ padding-left: 19px;
+}
+img{
+ position: absolute;
+ top: 700px;
+}
+
+@media screen and(max-width: 1300px) {
+ h1{
+  font-size: 10px;
+ }
+}
